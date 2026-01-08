@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Jumpscare Prototype</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>click here for free rp</h1>
+  <button id="start">Start (click)</button>
+  <p class="credit">from tiago</p>
+</div>
+
+<div id="overlay" class="overlay hidden" role="dialog" aria-hidden="true">
+  <button id="close" class="close">Close</button>
+  <!-- inlined SVG to avoid remote loading issues on GitHub Pages -->
+  <svg id="scary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Scary image">
+    <rect width="100%" height="100%" fill="#000"/>
+    <g transform="translate(400,300)">
+      <circle r="240" fill="#111" stroke="#550000" stroke-width="6" />
+      <g fill="#ff0000">
+        <ellipse cx="-90" cy="-40" rx="42" ry="60" />
+        <ellipse cx="90" cy="-40" rx="42" ry="60" />
+      </g>
+      <path d="M -160 80 C -120 170 -40 200 0 160 C 40 200 120 170 160 80 C 60 210 -60 220 -160 80 Z" fill="#222" stroke="#880000" stroke-width="6"/>
+      <path d="M -160 80 C -120 170 -40 200 0 160 C 40 200 120 170 160 80" fill="none" stroke="#ff4444" stroke-width="8" stroke-linecap="round"/>
+    </g>
+  </svg>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

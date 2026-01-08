@@ -1,0 +1,40 @@
+*{box-sizing:border-box;font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
+body{margin:0;background:#111;color:#eee;min-height:100vh;display:flex;align-items:center;justify-content:center}
+.container{text-align:center;max-width:720px;padding:2rem}
+.notice{color:#ffcccb;font-weight:600}
+#start{padding:1rem 1.5rem;font-size:1.1rem;border-radius:8px;border:none;cursor:pointer;background:#d12a2a;color:white}
+.hint{opacity:.8}
+
+.overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.95);z-index:9999}
+.overlay.hidden{display:none}
+.overlay img,.overlay svg{max-width:100%;max-height:100%;width:auto;height:auto;transform:scale(.8);filter:drop-shadow(0 0 20px #000);transition:transform .08s ease,filter .08s ease}
+.overlay.show img,.overlay.show svg{transform:scale(1.2);}
+
+.overlay.intense img,.overlay.intense svg{
+  transform:scale(1.6) rotate(-6deg);
+  filter:brightness(8) saturate(1.2) drop-shadow(0 0 40px #ff0000);
+  transition:transform .06s ease,filter .06s ease;
+}
+
+.close{position:absolute;top:16px;right:16px;background:rgba(255,255,255,0.08);color:#fff;border:1px solid rgba(255,255,255,0.12);padding:.5rem .75rem;border-radius:6px;cursor:pointer}
+
+/* quick flash animation */
+@keyframes flash {
+  0%{filter:brightness(1)}
+  10%{filter:brightness(12)}
+  35%{filter:brightness(3)}
+  100%{filter:brightness(1)}
+}
+.overlay.flash img{animation:flash .45s ease-in-out}
+
+/* occasional quick white flash for extra jump */
+.overlay.intense::before{
+  content:"";
+  position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,0.9),rgba(255,255,255,0.0));
+  animation:blitz .12s linear;
+  pointer-events:none;mix-blend-mode:screen;
+}
+@keyframes blitz{0%{opacity:1}100%{opacity:0}}
+
+/* subtle credit text */
+.credit{font-size:0.9rem;color:rgba(255,255,255,0.22);margin-top:12px;font-style:italic;}
